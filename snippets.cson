@@ -1,0 +1,76 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+# --------- Javascript --------
+
+'.source.js':
+  'Object Contstructor':
+    'prefix': 'construct'
+    'body': """
+      function $1($2){
+        this.$2 = $2;
+      }$6
+    """
+
+# -------- Node --------
+
+  'Express Server':
+    'prefix': 'express'
+    'body' : """
+        const express = require("express");
+        const fs = require("fs");
+        var app = express();
+        var port = $1;
+
+        app.use(express.static(__dirname + "/public"));
+
+        app.listen(port);
+        console.log("server is running on port " + port);$2
+    """
+
+  'Read File':
+    'prefix': 'read'
+    'body': """
+      var $1 = fs.readFile('$2',$3function(err,data){
+        if(err){
+          return console.log(err);
+        }
+        //when file opens...
+        $4
+        });
+    """
+
+  'Export Module':
+    'prefix': 'node-export'
+    'body': """
+      var exports = module.exports;
+      exports.$1 = $2;
+    """
+# -------- Angular --------
+
+
+
+# -------- Bash --------
+
+
+
+# -------- Batch --------
