@@ -31,6 +31,18 @@
       }$6
     """
 
+  'map function':
+    'prefix': 'js-map'
+    'body': """
+      map(($1) => $2)$3
+    """
+
+  'reduce function':
+    'prefix': 'js-reduce'
+    'body': """
+      reduce(($1,$2) => $1$3)$4
+    """
+
 # -------- Node --------
 
   'Express Server':
@@ -56,14 +68,14 @@
         }
         //when file opens...
         $4
-        });
+        });$5
     """
 
   'Export Module':
     'prefix': 'node-export'
     'body': """
       var exports = module.exports;
-      exports.$1 = $2;
+      exports.$1 = $1;$2
     """
 # -------- Angular --------
 
